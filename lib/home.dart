@@ -31,6 +31,8 @@ class _HomeState extends State<Home> {
                     level: heros['powerstats']['intelligence'].toString(),
                     image: heros['images']['md'],
                     brand: marvel == "Marvel Comics" ? marvelLogo : dcLogo,
+                    color1: marvel == "Marvel Comics" ? marvelColor : dcColor,
+                    color2: Colors.white,
                     onTab: () {},
                   );
                 });
