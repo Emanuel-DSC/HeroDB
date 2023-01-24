@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'database.dart';
 
 class HeroesDetailsScreen extends StatelessWidget {HeroesDetailsScreen({
   super.key, required this.hero});
@@ -10,7 +9,13 @@ class HeroesDetailsScreen extends StatelessWidget {HeroesDetailsScreen({
     return Scaffold(
       appBar: AppBar(title: Text(hero['name']
       ),),
-      body: Container(),
+      body: Center(
+        child: Container(
+          height: 100,
+          width: 100,
+          child: Text(hero['biography']['publisher'] ?? 'NO INFORMATION ABOUT IT'),
+        ),
+      ),
     );
   }
 }
