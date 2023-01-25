@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'dart:ffi';
 import 'package:flutter/material.dart';
+import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'package:herodb/constants.dart';
 import 'package:herodb/heroes_details.dart';
 import 'package:http/http.dart' as http;
@@ -17,6 +17,7 @@ class _DataBaseState extends State<DataBase> {
 
   @override
   Widget build(BuildContext context) {
+    CardController controller;
     return FutureBuilder<dynamic>(
       future: getHeroes(),
       builder: ((context, snapshot) {
@@ -24,11 +25,19 @@ class _DataBaseState extends State<DataBase> {
           return Column(
             children: [
               Expanded(
-                child: PageView.builder(
-                    controller:
-                        PageController(initialPage: 0, viewportFraction: 0.85),
-                    itemCount: snapshot.data!.length,
-                    itemBuilder: (context, index) {
+                child: TinderSwapCard(
+                  swipeUp: true,
+                  swipeDown: true,
+                  orientation: AmassOrientation.TOP,
+                  totalNum: snapshot.data.length,
+                  stackNum: 5,
+                  swipeEdge: 4.0,
+                  maxWidth: MediaQuery.of(context).size.width,
+                  maxHeight: MediaQuery.of(context).size.height,
+                  minWidth: MediaQuery.of(context).size.width * 0.8,
+                  minHeight: MediaQuery.of(context).size.height * 0.8,
+                  cardBuilder: (context, index) {
+                          
                       var heroes = snapshot.data![index];
 
                       //condintions to custom colors and image
@@ -154,7 +163,6 @@ class _DataBaseState extends State<DataBase> {
 
                       return ActivityListTile(
                         name: heroes['name'].toString(),
-                        level: heroes['powerstats']['intelligence'].toString(),
                         image: heroes['images']['md'] ?? heroImgNull,
                         brand: publisherName,
                         color1: mainColor,
@@ -169,33 +177,24 @@ class _DataBaseState extends State<DataBase> {
                           );
                         },
                       );
-                    }),
+                    },
+                  cardController: controller = CardController(),
+                  swipeUpdateCallback:
+                      (DragUpdateDetails details, Alignment align) {
+                    /// Get swiping card's alignment
+                    if (align.x < 0) {
+                      //Card is LEFT swiping
+                    } else if (align.x > 0) {
+                      //Card is RIGHT swiping
+                    }
+                  },
+                  swipeCompleteCallback:
+                      (CardSwipeOrientation orientation, int index) {
+                    /// Get orientation & index of swiped card!
+                  },
+      
+                      ),
               ),
-              /*Row(
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        pageController.previousPage(
-                            duration: const Duration(seconds: 1),
-                            curve: Curves.easeInOut);
-                      },
-                      child: const Text('Back'),
-                    ),
-                  ),
-                  const SizedBox(width: 20),
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        pageController.nextPage(
-                            duration: const Duration(seconds: 1),
-                            curve: Curves.easeInOut);
-                      },
-                      child: const Text('Next'),
-                    ),
-                  ),
-                ],
-              ),*/
             ],
           );
         } else if (snapshot.hasError) {

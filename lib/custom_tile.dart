@@ -5,7 +5,6 @@ import 'package:herodb/constants.dart';
 
 class ActivityListTile extends StatelessWidget {
   String name;
-  String level;
   String image;
   String brand;
   Color color1;
@@ -17,7 +16,6 @@ class ActivityListTile extends StatelessWidget {
       required this.name,
       required this.brand,
       required this.onTab,
-      required this.level,
       required this.color1,
       required this.color2,
       required this.image});
