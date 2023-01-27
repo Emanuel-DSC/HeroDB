@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+Color greyAccent = const Color.fromARGB(197, 151, 151, 151);
 Color marvelColor = const Color(0xffF0131E);
 Color dcColor = const Color(0xff0476F2);
 Color georgeColor = const Color(0xffb89c5b);
@@ -51,3 +52,19 @@ String imageComicsLogo =
     'https://www.cuartomundo.cl/wp-content/uploads/2015/09/Image-Comics-Logo.png';
 String microsoftLogo =
     'http://tribodoci.net/wp-content/uploads/2012/08/microsoft-logo.png';
+String texture =
+    'https://static.vecteezy.com/system/resources/thumbnails/007/306/898/small/stylish-panoramic-background-silver-steel-metal-texture-vector.jpg';
+
+String armImg = 'lib/assets/arm.png';
+String boxingImg = 'lib/assets/boxing.png';
+String brainImg = 'lib/assets/brain.png';
+String personImg = 'lib/assets/person.png';
+String shieldImg = 'lib/assets/shield.png';
+String superpowerImg = 'lib/assets/superpower.png';
+
+String powerStatsText = 'INTELLIGENCE';
+String powerStatsText2 = 'STRENGTH';
+String powerStatsText3 = 'SPEED';
+String powerStatsText4 = 'DURABILITY';
+String powerStatsText5 = 'POWER';
+String powerStatsText6 = 'COMBAT';
