@@ -4,6 +4,7 @@ import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:herodb/constants.dart';
 import 'package:herodb/widgets/powerstat.dart';
 
+// ignore: must_be_immutable
 class ActivityListTile extends StatelessWidget {
   String name;
   String powerStats;
@@ -37,7 +38,6 @@ class ActivityListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    double statsHeight;
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(8, 36, 8, 16),
@@ -104,17 +104,13 @@ class ActivityListTile extends StatelessWidget {
                           ),
                           Positioned(
                             top: height * 0.385,
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 4),
-                              child: Container(
-                                width: 352,
-                                height: 12,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: NetworkImage(texture),
-                                      fit: BoxFit.fill),
-                                ),
+                            child: Container(
+                              width: 345,
+                              height: 12,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: NetworkImage(texture),
+                                    fit: BoxFit.fill),
                               ),
                             ),
                           ),
@@ -135,43 +131,43 @@ class ActivityListTile extends StatelessWidget {
                               ],
                             ),
                           )),
-                          powerList(
+                          PowerList(
+                              height: height,
+                              statsHeight: 0.4,
+                              iconName: brainImg,
+                              textInfo: powerStatsText,
+                              valueInfo: powerStats),
+                          PowerList(
                             height: height,
-                            statsHeight: 0.4,
-                            iconName: brainImg,
-                            textInfo: powerStatsText,
-                            valueInfo: powerStats),
-                          powerList(
-                            height: height,
-                            statsHeight: 0.47,
+                            statsHeight: 0.455,
                             iconName: armImg,
                             textInfo: powerStatsText2,
                             valueInfo: powerStats2,
                           ),
-                          powerList(
+                          PowerList(
                             height: height,
-                            statsHeight: 0.54,
+                            statsHeight: 0.51,
                             iconName: personImg,
                             textInfo: powerStatsText3,
                             valueInfo: powerStats3,
                           ),
-                          powerList(
+                          PowerList(
                             height: height,
-                            statsHeight: 0.61,
+                            statsHeight: 0.565,
                             iconName: shieldImg,
                             textInfo: powerStatsText4,
                             valueInfo: powerStats4,
                           ),
-                          powerList(
+                          PowerList(
                             height: height,
-                            statsHeight: 0.68,
+                            statsHeight: 0.62,
                             iconName: superpowerImg,
                             textInfo: powerStatsText5,
                             valueInfo: powerStats5,
                           ),
-                          powerList(
+                          PowerList(
                             height: height,
-                            statsHeight: 0.68,
+                            statsHeight: 0.675,
                             iconName: boxingImg,
                             textInfo: powerStatsText6,
                             valueInfo: powerStats6,
