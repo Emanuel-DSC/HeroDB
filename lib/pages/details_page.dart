@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:herodb/constants.dart';
-import 'package:herodb/widgets/details_text.dart';
-import 'package:herodb/widgets/details_title.dart';
+import 'package:herodb/widgets/details/details_text.dart';
+import 'package:herodb/widgets/details/details_title.dart';
 
 // ignore: must_be_immutable
 class HeroesDetailsScreen extends StatelessWidget {
@@ -20,6 +20,7 @@ class HeroesDetailsScreen extends StatelessWidget {
     String relatives = hero['connections']['relatives'].toString();
     String firstAppearence = hero['biography']['firstAppearance'].toString();
     String occupation = hero['work']['occupation'].toString();
+    String fullName = hero['biography']['fullName'].toString();
 
     return Scaffold(
       backgroundColor: Colors.grey[800],
@@ -68,9 +69,7 @@ class HeroesDetailsScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(12.0),
                 child: Center(
                   child: Text(
-                    hero['biography']['fullName'].toString() == ''
-                        ? hero['name']
-                        : hero['biography']['fullName'].toString(),
+                    fullName == '' ? hero['name'] : fullName,
                     style: GoogleFonts.getFont(
                       'Inter',
                       color: whiteColor,
@@ -139,3 +138,4 @@ class HeroesDetailsScreen extends StatelessWidget {
     );
   }
 }
+

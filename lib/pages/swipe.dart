@@ -1,10 +1,12 @@
+import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'package:herodb/constants.dart';
 import 'package:herodb/pages/details_page.dart';
+import 'package:herodb/widgets/back_card/back_card.dart';
 import '../api.dart';
-import '../widgets/custom_tile.dart';
+import '../widgets/front_card/front_card.dart';
 
 class SwipeScreen extends StatefulWidget {
   const SwipeScreen({Key? key}) : super(key: key);
@@ -18,6 +20,7 @@ class _SwipeScreenState extends State<SwipeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
     // ignore: unused_local_variable
     CardController controller;
     return FutureBuilder<dynamic>(
@@ -47,8 +50,25 @@ class _SwipeScreenState extends State<SwipeScreen> {
 
                       String publisherName =
                           heroes['biography']['publisher'].toString();
-                      Color mainColor = Colors.transparent;
-                      Color secondColor = Colors.transparent;
+                      String placeOfBirth =
+                          heroes['biography']['placeOfBirth'].toString();
+                      String race = heroes['appearance']['race'].toString();
+                      String name = heroes['name'].toString();
+                      String fullName =
+                          heroes['biography']['fullName'].toString();
+                      String img = heroes['images']['md'].toString();
+                      String powerStats =
+                          heroes['powerstats']['intelligence'].toString();
+                      String powerStats2 =
+                          heroes['powerstats']['strength'].toString();
+                      String powerStats3 =
+                          heroes['powerstats']['speed'].toString();
+                      String powerStats4 =
+                          heroes['powerstats']['durability'].toString();
+                      String powerStats5 =
+                          heroes['powerstats']['power'].toString();
+                      String powerStats6 =
+                          heroes['powerstats']['combat'].toString();
 
                       if (publisherName == 'Marvel Comics' ||
                           publisherName == 'She-Thing' ||
@@ -79,9 +99,7 @@ class _SwipeScreenState extends State<SwipeScreen> {
                           publisherName == 'Power Man' ||
                           publisherName == 'Iron Lad' ||
                           publisherName == 'Phoenix') {
-                        publisherName = marvelLogo;
-                        mainColor = marvelColor;
-                        secondColor = whiteColor;
+                        publisherName = 'Marvel Comics';
                       } else if (publisherName == 'DC Comics' ||
                           publisherName == 'Wildstorm' ||
                           publisherName == 'Aztar' ||
@@ -101,93 +119,39 @@ class _SwipeScreenState extends State<SwipeScreen> {
                           publisherName == 'Impulse' ||
                           publisherName == 'Superman Prime One-Million' ||
                           publisherName == 'Batgirl III') {
-                        publisherName = dcLogo;
-                        mainColor = dcColor;
-                        secondColor = whiteColor;
-                      } else if (publisherName == 'NBC - Heroes') {
-                        publisherName = nbcLogo;
-                        mainColor = yellowColor;
-                        secondColor = nbcColor2;
-                      } else if (publisherName == 'Microsoft') {
-                        publisherName = microsoftLogo;
-                        mainColor = marvelColor;
-                        secondColor = dcColor;
-                      } else if (publisherName == 'SyFy') {
-                        publisherName = syfyLogo;
-                        mainColor = syfyColor;
-                        secondColor = whiteColor;
-                      } else if (publisherName == 'George Lucas') {
-                        publisherName = georgeLucasLogo;
-                        mainColor = whiteColor;
-                        secondColor = georgeColor;
-                      } else if (publisherName == 'Meltdown') {
-                        publisherName = meltdownLogo;
-                        mainColor = meltdownColor1;
-                        secondColor = meltdownColor2;
-                      } else if (publisherName == 'South Park') {
-                        publisherName = southParkLogo;
-                        mainColor = southParkColor;
-                        secondColor = blackColor;
-                      } else if (publisherName == 'Universal Studios') {
-                        publisherName = universalStudiosLogo;
-                        mainColor = universalStudioColor;
-                        secondColor = whiteColor;
-                      } else if (publisherName == 'Star Trek') {
-                        publisherName = starTrekLogo;
-                        mainColor = yellowColor;
-                        secondColor = whiteColor;
-                      } else if (publisherName == 'IDW Publishing' ||
-                          publisherName == 'Sony Pictures' ||
-                          publisherName == 'Image Comics' ||
-                          publisherName == 'ABC Studios') {
-                        mainColor = blackColor;
-                        secondColor = whiteColor;
-                        if (publisherName == 'IDW Publishing') {
-                          publisherName = idwLogo;
-                        } else if (publisherName == 'Sony Pictures') {
-                          publisherName = sonyLogo;
-                        } else if (publisherName == 'Image Comics') {
-                          publisherName = imageComicsLogo;
-                        } else {
-                          publisherName = abcStudiosLogo;
-                        }
-                      } else if (publisherName == 'Shueisha' ||
-                          publisherName == 'Dark Horse Comics') {
-                        mainColor = whiteColor;
-                        secondColor = blackColor;
-                        if (publisherName == 'Shueisha') {
-                          publisherName = shueishaLogo;
-                        } else {
-                          publisherName = darkHorseLogo;
-                        }
-                      } else {
-                        publisherName = publisherImgNull;
+                        publisherName = 'DC Comics';
                       }
-
-                      return ActivityListTile(
-                        name: heroes['name'].toString(),
-                        image: heroes['images']['md'] ?? heroImgNull,
-                        brand: publisherName,
-                        color1: mainColor,
-                        color2: secondColor,
-                        powerStats:
-                            heroes['powerstats']['intelligence'].toString(),
-                        powerStats2:
-                            heroes['powerstats']['strength'].toString(),
-                        powerStats3: heroes['powerstats']['speed'].toString(),
-                        powerStats4:
-                            heroes['powerstats']['durability'].toString(),
-                        powerStats5: heroes['powerstats']['power'].toString(),
-                        powerStats6: heroes['powerstats']['combat'].toString(),
-                        onTab: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  HeroesDetailsScreen(hero: heroes),
-                            ),
-                          );
-                        },
+                      return Center(
+                        child: FlipCard(
+                          front: FrontCard(
+                            name: name,
+                            placeOfBirth:
+                                placeOfBirth == '-' || placeOfBirth == 'null'
+                                    ? placeOfBirthError
+                                    : placeOfBirth,
+                            race: race == 'null' ? raceError : race,
+                            realname: fullName == '' ? name : fullName,
+                            image: img,
+                            brand: publisherName,
+                            publisher: publisherName,
+                          ),
+                          back: BackCard(
+                            powerStats: powerStats,
+                            powerStats2: powerStats2,
+                            powerStats3: powerStats3,
+                            powerStats4: powerStats4,
+                            powerStats5: powerStats5,
+                            powerStats6: powerStats6,
+                            onTab: () {
+                              Future.delayed(const Duration(milliseconds: 400), () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => HeroesDetailsScreen(hero: heroes,)));
+                              });
+                            },
+                          ),
+                        ),
                       );
                     },
                     cardController: controller = CardController(),
