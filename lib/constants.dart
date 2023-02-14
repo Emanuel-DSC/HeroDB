@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 Color blackColor = Colors.black;
 Color whiteColor = Colors.white;
+Color bgColor = const Color(0xFF222222);
 
 String powerStatsText = 'QI';
 String powerStatsText2 = 'STR';
@@ -26,3 +27,4 @@ String raceError = 'No race found';
 String realNameText = 'Real Name: ';
 String raceText = 'Race: ';
 String publisherText = 'Publisher: ';
+String homeCoverImg = 'lib/assets/homeCover.png';

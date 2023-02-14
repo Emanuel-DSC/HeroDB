@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:herodb/pages/home.dart';
+import 'package:herodb/pages/search.dart';
+import 'package:herodb/pages/swipe.dart';
+import 'package:herodb/pages/teste.dart';
 
 void main() => runApp(const MyApp());
 
@@ -8,10 +11,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'HeroDB',
-      home: Home(),
+      home: TesteScreen(),
     );
   }
 }
