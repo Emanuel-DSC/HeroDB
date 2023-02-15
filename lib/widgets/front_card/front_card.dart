@@ -28,20 +28,18 @@ class FrontCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8),
-      child: SingleChildScrollView(
-        physics: const NeverScrollableScrollPhysics(),
-        child: Column(
-          children: [
-            Container(
-              height: 240,
-              width: 480,
-              decoration: BoxDecoration(
-                color: blackColor,
-                borderRadius: const BorderRadius.all(Radius.circular(15)),
-              ),
-              child: Row(
-                children: [
-                  Container(
+      child: Column(
+        children: [
+          Container(
+            height: 240,
+            width: 480,
+            decoration: BoxDecoration(
+              color: blackColor,
+              borderRadius: const BorderRadius.all(Radius.circular(15)),
+            ),
+            child: Row(
+              children: [
+                 Container(
                     height: 380,
                     width: 150,
                     decoration: BoxDecoration(
@@ -52,65 +50,62 @@ class FrontCard extends StatelessWidget {
                           image: NetworkImage(image), fit: BoxFit.fill),
                     ),
                   ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: SingleChildScrollView(
-                        physics: const NeverScrollableScrollPhysics(),
-                        child: Column(
-                          children: [
-                            Row(children: [
-                                Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                name,
-                                style: GoogleFonts.getFont(
-                                    'Fredericka the Great',
-                                    color: whiteColor,
-                                    fontSize: 22),
-                              ),
-                            ),
-                               
-                            ],
-                            ),
-                            const SizedBox(height: 30),
-                            FrontCardWidget(
-                              info: realNameText,
-                              secondInfo: realname,
-                            ),
-                            const SizedBox(height: 10),
-                            FrontCardWidget(
-                              info: raceText,
-                              secondInfo: race,
-                            ),
-                            const SizedBox(height: 10),
-                            FrontCardWidget(
-                              info: placeOfBirthTitle,
-                              secondInfo: placeOfBirth,
-                            ),
-                            const SizedBox(height: 10),
-                            FrontCardWidget(
-                              info: publisherText,
-                              secondInfo: publisher,
-                            ),
-                            const SizedBox(height: 5),
-                            Align(
-                                alignment: Alignment.bottomRight,
-                                child: Icon(
-                                  Icons.sync,
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: SingleChildScrollView(
+                      physics: const NeverScrollableScrollPhysics(),
+                      child: Column(
+                        children: [
+                          Row(children: [
+                              Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              name,
+                              style: GoogleFonts.getFont(
+                                  'Fredericka the Great',
                                   color: whiteColor,
-                                ),),
+                                  fontSize: 22),
+                            ),
+                          ),
+                             
                           ],
-                        ),
+                          ),
+                          const SizedBox(height: 30),
+                          FrontCardWidget(
+                            info: realNameText,
+                            secondInfo: realname,
+                          ),
+                          const SizedBox(height: 10),
+                          FrontCardWidget(
+                            info: raceText,
+                            secondInfo: race,
+                          ),
+                          const SizedBox(height: 10),
+                          FrontCardWidget(
+                            info: placeOfBirthTitle,
+                            secondInfo: placeOfBirth,
+                          ),
+                          const SizedBox(height: 10),
+                          FrontCardWidget(
+                            info: publisherText,
+                            secondInfo: publisher,
+                          ),
+                          const SizedBox(height: 5),
+                          Align(
+                              alignment: Alignment.bottomRight,
+                              child: Icon(
+                                Icons.sync,
+                                color: whiteColor,
+                              ),),
+                        ],
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
       ),
-    );
+    ]));
   }
 }

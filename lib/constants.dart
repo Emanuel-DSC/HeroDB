@@ -28,3 +28,6 @@ String realNameText = 'Real Name: ';
 String raceText = 'Race: ';
 String publisherText = 'Publisher: ';
 String homeCoverImg = 'lib/assets/homeCover.png';
+String appTitle = 'Hero DB';
+String searchTitle = 'Search your Hero';
+String searchHereText = 'Search here';

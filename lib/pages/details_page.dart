@@ -4,6 +4,7 @@ import 'package:herodb/constants.dart';
 import 'package:herodb/widgets/details/details_text.dart';
 import 'package:herodb/widgets/details/details_title.dart';
 
+
 // ignore: must_be_immutable
 class HeroesDetailsScreen extends StatelessWidget {
   HeroesDetailsScreen({super.key, required this.hero});
