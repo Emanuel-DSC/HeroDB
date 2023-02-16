@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:herodb/constants.dart';
 import 'package:herodb/widgets/back_card/back_card.dart';
 import 'package:herodb/widgets/front_card/front_card.dart';
-import 'details_page.dart';
+import 'details_screen.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -58,7 +58,14 @@ class _SearchScreenState extends State<SearchScreen> {
           controller: _textController,
           onChanged: (value) {
             _filterHeroes(value);
+            if (value.isEmpty){
+              _textController.clear();
+              filteredHeroes = [];
+              // dismiss Keyboard
+              FocusScope.of(context).requestFocus(FocusNode());
+            }
           },
+          
           style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(
               suffixIcon: IconButton(
@@ -70,6 +77,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   setState(() {
                     filteredHeroes = [];
                     _textController.clear();
+                    FocusScope.of(context).requestFocus(FocusNode());
                   });
                 },
               ),

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:herodb/constants.dart';
-import 'package:herodb/pages/home.dart';
-import 'package:herodb/pages/search.dart';
-import 'package:herodb/pages/swipe.dart';
-import 'package:herodb/pages/teste.dart';
+
+import 'screens/home_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -15,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: appTitle,
-      home: TesteScreen(),
+      home: const Home(),
     );
   }
 }

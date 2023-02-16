@@ -31,3 +31,6 @@ String homeCoverImg = 'lib/assets/homeCover.png';
 String appTitle = 'Hero DB';
 String searchTitle = 'Search your Hero';
 String searchHereText = 'Search here';
+String homeText1 = 'How to use:';
+String homeText2 = 'Swipe right to next card and left to previous one';
+String homeText3 = 'Every card is flippable, just touch it once to flip';
