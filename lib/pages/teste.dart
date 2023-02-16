@@ -185,8 +185,11 @@ class _TesteScreenState extends State<TesteScreen> {
                       }),
                 ),
           )
-          : const Center(
-              child: CircularProgressIndicator(),
+          : Center(
+              child: CircularProgressIndicator(
+                color: Colors.red.shade900,
+                backgroundColor: Colors.grey.shade600,
+              ),
             ),
     );
   }

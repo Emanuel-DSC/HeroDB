@@ -131,7 +131,7 @@ class BackCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 15),
                     Align(
                         alignment: Alignment.bottomCenter,
                         child: AnimatedButton(
@@ -139,17 +139,19 @@ class BackCard extends StatelessWidget {
                           width: 100,
                           text: 'SEE MORE',
                           isReverse: true,
-                          selectedTextColor: Colors.black,
+                          selectedTextColor: Colors.white,
                           transitionType: TransitionType.LEFT_TO_RIGHT,
                           textStyle: GoogleFonts.getFont(
                                 'Roboto',
                                 color: whiteColor,
                                 fontSize: 14,
                               ),
-                          backgroundColor: Colors.black,
                           borderColor: Colors.grey,
                           borderRadius: 50,
                           borderWidth: 1,
+                          backgroundColor: blackColor,
+                          selectedGradientColor: LinearGradient(
+                          colors: [Colors.red.shade600, Colors.red.shade900]),
                           onPress: onTab,
                         ),
                       ),

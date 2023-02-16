@@ -12,7 +12,6 @@ class FrontCard extends StatelessWidget {
   String realname;
   String image;
   String brand;
-  
 
   FrontCard(
       {super.key,
@@ -27,9 +26,8 @@ class FrontCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8),
-      child: Column(
-        children: [
+        padding: const EdgeInsets.all(8),
+        child: Column(children: [
           Container(
             height: 240,
             width: 480,
@@ -39,17 +37,30 @@ class FrontCard extends StatelessWidget {
             ),
             child: Row(
               children: [
-                 Container(
-                    height: 380,
-                    width: 150,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(15),
-                          bottomLeft: Radius.circular(15)),
-                      image: DecorationImage(
-                          image: NetworkImage(image), fit: BoxFit.fill),
-                    ),
+                Container(
+                  height: 380,
+                  width: 150,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(15),
+                        bottomLeft: Radius.circular(15)),
                   ),
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.only(topLeft: Radius.circular(15), bottomLeft: Radius.circular(15)),
+                    child: Image.network(image, 
+                        fit: BoxFit.fill,
+                        loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) {
+                        return child;
+                      } else {
+                        return Center(child: CircularProgressIndicator(
+                          color: Colors.red.shade900,
+                          backgroundColor: Colors.grey.shade600,
+                        ));
+                      }
+                    }),
+                  ),
+                ),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
@@ -57,19 +68,19 @@ class FrontCard extends StatelessWidget {
                       physics: const NeverScrollableScrollPhysics(),
                       child: Column(
                         children: [
-                          Row(children: [
+                          Row(
+                            children: [
                               Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              name,
-                              style: GoogleFonts.getFont(
-                                  'Fredericka the Great',
-                                  color: whiteColor,
-                                  fontSize: 22),
-                            ),
-                          ),
-                             
-                          ],
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  name,
+                                  style: GoogleFonts.getFont(
+                                      'Fredericka the Great',
+                                      color: whiteColor,
+                                      fontSize: 22),
+                                ),
+                              ),
+                            ],
                           ),
                           const SizedBox(height: 30),
                           FrontCardWidget(
@@ -93,11 +104,12 @@ class FrontCard extends StatelessWidget {
                           ),
                           const SizedBox(height: 5),
                           Align(
-                              alignment: Alignment.bottomRight,
-                              child: Icon(
-                                Icons.sync,
-                                color: whiteColor,
-                              ),),
+                            alignment: Alignment.bottomRight,
+                            child: Icon(
+                              Icons.sync,
+                              color: whiteColor,
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -105,7 +117,7 @@ class FrontCard extends StatelessWidget {
                 ),
               ],
             ),
-      ),
-    ]));
+          ),
+        ]));
   }
 }

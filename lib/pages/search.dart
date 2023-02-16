@@ -77,7 +77,7 @@ class _SearchScreenState extends State<SearchScreen> {
               hintText: searchHereText,
               hintStyle: const TextStyle(color: Colors.grey)),
           cursorWidth: 5,
-          cursorColor: Colors.amberAccent,
+          cursorColor: Colors.red.shade800,
           cursorRadius: const Radius.circular(3),
         ),
       ),
