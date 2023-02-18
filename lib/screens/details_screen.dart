@@ -27,8 +27,14 @@ class HeroesDetailsScreen extends StatelessWidget {
       backgroundColor: Colors.grey[800],
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        iconTheme: const IconThemeData(
-          color: Colors.red, //change your color here
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios_new_outlined,
+            color: Colors.white,
+          ),
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,

@@ -52,47 +52,52 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios_new_outlined,
+            color: Colors.white,
+          ),
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: TextField(
           controller: _textController,
           onChanged: (value) {
             _filterHeroes(value);
-            if (value.isEmpty){
+            if (value.isEmpty) {
               _textController.clear();
               filteredHeroes = [];
-              // dismiss Keyboard
-              FocusScope.of(context).requestFocus(FocusNode());
             }
           },
-          
           style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(
-              suffixIcon: IconButton(
-                icon: const Icon(
-                  Icons.cancel_outlined,
-                  color: Colors.grey,
-                ),
-                onPressed: () {
-                  setState(() {
-                    filteredHeroes = [];
-                    _textController.clear();
-                    FocusScope.of(context).requestFocus(FocusNode());
-                  });
-                },
+            suffixIcon: IconButton(
+              icon: const Icon(
+                Icons.clear_rounded,
+                color: Colors.white,
               ),
-              border: const OutlineInputBorder(borderSide: BorderSide.none),
-              hintText: searchHereText,
-              hintStyle: const TextStyle(color: Colors.grey)),
-          cursorWidth: 5,
+              onPressed: () {
+                setState(() {
+                  filteredHeroes = [];
+                  _textController.clear();
+                });
+              },
+            ),
+            border: const OutlineInputBorder(borderSide: BorderSide.none),
+            hintText: searchHereText,
+            hintStyle: const TextStyle(color: Colors.white),
+          ),
+          cursorWidth: 2,
           cursorColor: Colors.red.shade800,
           cursorRadius: const Radius.circular(3),
         ),
       ),
       body: Container(
         padding: const EdgeInsets.all(10),
-        child: //filteredHeroes.isNotEmpty ?
-            Visibility(
+        child: Visibility(
           visible: isVisibile,
           child: ListView.builder(
               keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,

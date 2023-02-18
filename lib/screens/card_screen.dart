@@ -42,6 +42,15 @@ class _CardsScreenState extends State<CardsScreen> {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios_new_outlined,
+            color: Colors.white,
+          ),
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: GradientText(info: appTitle, size: 32,),
