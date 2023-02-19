@@ -14,6 +14,8 @@ Basically you just navigate through the cards to know more about the Heroes' uni
 ## Why ? 
 I decided to create Hero Cards with some stats to study Flutter and Dart. Now it's part of my personal portfolio, so any feedback about the project, code, structure or anything else will be very welcome!
 
+email: emanuelldsc@gmail.com
+
 ## Installers
 If you want to test the App in the Production mode, the installers are listed below:
 
