@@ -16,7 +16,7 @@ I decided to create Hero Cards with some stats to study Flutter and Dart. Now it
 
 email: emanuelldsc@gmail.com
 
-## APIs ? 
+## APIs  
 cupertino_icons: ^1.0.2
 http: ^0.13.4
 google_fonts: ^3.0.1 
