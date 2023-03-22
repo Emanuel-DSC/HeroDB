@@ -17,14 +17,14 @@ I decided to create Hero Cards with some stats to study Flutter and Dart. Now it
 email: emanuelldsc@gmail.com
 
 ## APIs  
-cupertino_icons: ^1.0.2
-http: ^0.13.4
-google_fonts: ^3.0.1 
-flip_card: ^0.6.0
-slider_button: ^2.0.0
-flutter_animated_button: ^2.0.3
-flutter_native_splash: ^2.2.9
-dio: ^5.0.0
+cupertino_icons: ^1.0.2<br>
+http: ^0.13.4<br>
+google_fonts: ^3.0.1<br> 
+flip_card: ^0.6.0<br>
+slider_button: ^2.0.0<br>
+flutter_animated_button: ^2.0.3<br>
+flutter_native_splash: ^2.2.9<br>
+dio: ^5.0.0<br>
 card_swiper : ^2.0.1
 
 ## Installers
