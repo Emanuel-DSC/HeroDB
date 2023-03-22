@@ -16,6 +16,17 @@ I decided to create Hero Cards with some stats to study Flutter and Dart. Now it
 
 email: emanuelldsc@gmail.com
 
+## APIs ? 
+cupertino_icons: ^1.0.2
+http: ^0.13.4
+google_fonts: ^3.0.1 
+flip_card: ^0.6.0
+slider_button: ^2.0.0
+flutter_animated_button: ^2.0.3
+flutter_native_splash: ^2.2.9
+dio: ^5.0.0
+card_swiper : ^2.0.1
+
 ## Installers
 If you want to test the App in the Production mode, the installers are listed below:
 
