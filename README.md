@@ -16,7 +16,7 @@ I decided to create Hero Cards with some stats to study Flutter and Dart. Now it
 
 email: emanuelldsc@gmail.com
 
-## APIs  
+## Packages  
 cupertino_icons: ^1.0.2<br>
 http: ^0.13.4<br>
 google_fonts: ^3.0.1<br> 
@@ -26,6 +26,9 @@ flutter_animated_button: ^2.0.3<br>
 flutter_native_splash: ^2.2.9<br>
 dio: ^5.0.0<br>
 card_swiper : ^2.0.1
+
+## API 
+https://www.themoviedb.org
 
 ## Installers
 If you want to test the App in the Production mode, the installers are listed below:
