@@ -28,11 +28,4 @@ dio: ^5.0.0<br>
 card_swiper : ^2.0.1
 
 ## API 
-https://www.themoviedb.org
-
-## Installers
-If you want to test the App in the Production mode, the installers are listed below:
-
-Android .apk installer : Soon!
-
-iOS .ipa installer: Soon!
+https://akabab.github.io/superhero-api/api/all.json
