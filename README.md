@@ -6,6 +6,7 @@
   <img align="center" src="https://user-images.githubusercontent.com/61395660/219904310-5099f587-8b39-4e69-bb8b-720cfbc415e1.png" alt="App screenshot1"  width="49% height="600"/>
 </div>
 <br>
+
 * Watch video here: https://www.youtube.com/shorts/TFRz4gg1h0s
 
 ## About this Project
